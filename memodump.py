@@ -295,7 +295,7 @@ class Theme(ThemeBase):
         """
         Append in-html script at the bottom of the page body.
         """
-        
+
         return ur"""
   <script>
     +function ($) {
@@ -306,7 +306,7 @@ class Theme(ThemeBase):
       $('.navbar-collapse').on('hidden.bs.collapse', function () {
         $('.navbar-mobile-toggle').togglejs('hide');
       });
-      
+
       //Scroll position fix for hash anchors
       var mdAnchorFix = {
         escapeRe: /[ !"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g,
@@ -352,7 +352,7 @@ class Theme(ThemeBase):
     }(jQuery);
   </script>
 """
-    
+
     def logo(self):
         """ Assemble logo with link to front page
         Using <a> tag only instead of wrapping with div
@@ -447,13 +447,12 @@ class Theme(ThemeBase):
         html = u'''
           <li>
             <div class="navbar-form">
-              <form class="form-search" role="search" id="searchform" method="get" action="%(url)s">
+              <form class="form-inline" role="search" id="searchform" method="get" action="%(url)s">
                 <input type="hidden" name="action" value="fullsearch">
                 <input type="hidden" name="context" value="180">
-                <div class="form-group">
-                  <label class="sr-only" for="searchinput">%(search_label)s</label>
-                  <input id="searchinput" type="text" class="form-control form-search" placeholder="%(search_hint)s" name="value" value="%(search_value)s">
-                </div>
+                <input id="searchinput" type="text" name="value" value="%(search_value)s" alt="Search" class="form-control" placeholder="%(search_hint)s">
+                <input id="titlesearch" name="titlesearch" type="submit" value="Titles" alt="Search Titles" class="btn btn-default">
+                <input id="fullsearch" name="fullsearch" type="submit" value="Text" alt="Search Full Text" class="btn btn-default">
               </form>
             </div>
           </li>
